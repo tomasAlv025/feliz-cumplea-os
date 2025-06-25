@@ -2,13 +2,36 @@ function mostrarMensaje() {
   const mensaje = document.getElementById("mensajeSecreto");
   const boton = document.getElementById("botonMensaje");
 
-  // Alternar la clase visible en lugar de "oculto" para animar entrada
+  // Toggle clase visible para animar el mensaje
   mensaje.classList.toggle("visible");
 
-  // Agregar animación y cambiar texto si está visible
+  // Si el mensaje está visible, animamos el botón y lanzamos confeti
   if (mensaje.classList.contains("visible")) {
     boton.classList.add("animado");
     boton.textContent = "💌 Gracias por hacer clic 💖";
+
+    // Lluvia de confeti suave 🎉
+    const duration = 2 * 1000;
+    const end = Date.now() + duration;
+
+    (function frame() {
+      confetti({
+        particleCount: 5,
+        angle: 60,
+        spread: 55,
+        origin: { x: 0 }
+      });
+      confetti({
+        particleCount: 5,
+        angle: 120,
+        spread: 55,
+        origin: { x: 1 }
+      });
+
+      if (Date.now() < end) {
+        requestAnimationFrame(frame);
+      }
+    })();
 
     setTimeout(() => {
       boton.classList.remove("animado");
@@ -34,3 +57,13 @@ setInterval(() => {
     foto.style.opacity = 1;
   }, 500);
 }, 3000);
+// Efecto de parpadeo en el título
+const titulo = document.getElementById("titulo");  
+setInterval(() => {
+  titulo.style.opacity = titulo.style.opacity === "0" ? "1" : "0";
+}, 1000);
+// Efecto de zoom en el botón
+const boton = document.getElementById("botonMensaje");
+setInterval(() => {
+  boton.style.transform = boton.style.transform === "scale(1)" ? "scale(1.1)" : "scale(1)";
+}, 1000);
