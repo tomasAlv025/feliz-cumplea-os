@@ -1,0 +1,110 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(270deg, #ff9a9e, #fad0c4, #fbc2eb, #a6c1ee);
+  background-size: 800% 800%;
+  animation: fondoAnimado 20s ease infinite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+@keyframes fondoAnimado {
+  0% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0% 50%;}
+}
+
+.container {
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 24px;
+  border: 1.5px solid rgba(255, 255, 255, 0.25);
+  padding: 2.5rem 2rem;
+  max-width: 700px;
+  margin: 2rem auto;
+  text-align: center;
+  transition: box-shadow 0.3s;
+}
+
+.container:hover {
+  box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.25);
+}
+
+h1 {
+  color: #d12d6a;
+  font-size: 2.5rem;
+}
+
+.carousel img {
+  width: 300px;
+  height: auto;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
+  transition: opacity 1s ease;
+  margin: 20px 0;
+}
+
+audio {
+  margin-top: 20px;
+}
+
+button {
+  margin-top: 20px;
+  background: #d12d6a;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.oculto {
+  display: none;
+  margin-top: 1rem;
+  background-color: #ffe3ec;
+  padding: 1rem;
+  border-radius: 10px;
+}
+
+/* ...otros estilos anteriores... */
+
+#mensajeSecreto {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease;
+}
+
+#mensajeSecreto.visible {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+#botonMensaje.animado {
+  background-color: #ff69b4;
+  transform: scale(1.1);
+  box-shadow: 0 0 15px #ff69b4;
+  transition: all 0.3s ease;
+}
+
+.acciones {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap; /* para que se acomoden si el espacio no alcanza */
+  margin-top: 20px;
+}
+
+.acciones audio {
+  width: 220px; /* ajustá según tu gusto */
+}
+
+.acciones button {
+  margin-top: 0; /* ya hay margen en el contenedor */
+}
